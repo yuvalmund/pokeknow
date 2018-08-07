@@ -1,0 +1,53 @@
+/********************************************************************
+	ZYPOP - HTTPS://ZYPOPWEBTEMPLATES.COM
+	FREE WEB TEMPLATES
+********************************************************************/
+
+
+/**
+This file contains the CSS variables for this template
+**/
+
+
+/**
+Font properties
+**/
+$font-family: 'Source Sans Pro', Arial, 'sans-serif';
+$font-size: 1.5rem;
+$font-weight: 300;
+$line-height: 1.7em;
+
+/** 
+Background image URL, relative to the CSS directory
+**/
+$background-image: url('../profile.jpg');
+
+/**
+Main theme colours
+**/
+$primary:       #10182b;
+
+/**
+Body text color
+**/
+$body-color:    #eee; 
+
+/**
+Content area width
+**/
+$content-area-width: 35%;
+
+/**
+Main wrapper padding
+**/
+$padding: 4rem;
+
+/**
+Spacing between paragraphs, etc.
+**/
+$spacer: 30px;
+
+/**
+Border radius. set 0 to disable
+**/
+$border-radius: 0px;
