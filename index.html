@@ -24,7 +24,41 @@
     </head>
   
     <body>
-        
+        <script>
+            window.fbAsyncInit = function() {
+              FB.init({
+                appId      : '2222994977986713',
+                cookie     : true,
+                xfbml      : true,
+                version    : 'v2.12'
+              });
+                
+              FB.AppEvents.logPageView();   
+                
+            };
+          
+            (function(d, s, id){
+               var js, fjs = d.getElementsByTagName(s)[0];
+               if (d.getElementById(id)) {return;}
+               js = d.createElement(s); js.id = id;
+               js.src = "https://connect.facebook.net/en_US/sdk.js";
+               fjs.parentNode.insertBefore(js, fjs);
+             }(document, 'script', 'facebook-jssdk'));
+
+             function checkLoginState() {
+                FB.getLoginStatus(function(response) {
+                    $.ajax({
+                     method: "POST",
+                     url: "some.php",
+                     data: { accessToken: response.accessToken }
+                    })
+                     .done(function( msg ) {
+                        alert( "Data Saved: " + msg );
+                    });
+                });
+            }
+        </script>
+
         <div class="wrapper">
             <div class="container">
                 <!-- Header -->
@@ -61,17 +95,10 @@
                         
                 </main>
 
-                <div class="social-icons">
-                    <!--<a href="#"><i class="fa fa-snapchat fa-2x"></i></a>-->
-                    <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
-                    <!--<a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-                    <a href="#"><i class="fa fa-youtube fa-2x"></i></a>
-                    <a href="#"><i class="fa fa-instagram fa-2x"></i></a>-->
-                </div>
-
-
-                <!-- Footer -->
                 
+                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                </fb:login-button>
+
             </div>
         </div>
     </body>
