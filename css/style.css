@@ -617,6 +617,11 @@ header h1 {
   margin-bottom: 0;
   line-height: 3.75rem; }
 
+#exit {
+  border: #008CBA;
+  background: gray;
+}
+
 header h2 {
   font-size: 1.5rem;
   font-weight: 400;
