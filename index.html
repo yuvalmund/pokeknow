@@ -16,7 +16,7 @@
 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
         <!-- Font Awesome -->
@@ -47,14 +47,14 @@
 
              function checkLoginState() {
                 FB.getLoginStatus(function(response) {
-                    $.ajax({
-                     method: "POST",
-                     url: "some.php",
-                     data: { accessToken: response.accessToken }
-                    })
-                     .done(function( msg ) {
-                        alert( "Data Saved: " + msg );
-                    });
+                        $.ajax({
+                        method: "POST",
+                        url: "/user",
+                        data: { accessToken: response.accessToken }
+                        })
+                        .done(function( msg ) {
+                            $("#pokemon").attr("src",msg);
+                        });
                 });
             }
         </script>
@@ -73,7 +73,7 @@
                     <p> Take a break from Catching Them All - and find out which classic PKMN fits your fighting spirit! Are you an adorable starter or a seasoned death machine? Find out now! </p>
                     
                         <!--<div class="go" id="p" > <strong> <center>go!</center>  </strong> </div>-->
-                        <button type="button" data-toggle="modal" data-target="#exampleModalLong" class="btn btn1"> go! </button>
+                        <button type="button" data-toggle="modal" data-target="#exampleModalLong" class="btn btn1" id="target"> go! </button>
                         <br>
                         <br>
 
@@ -87,7 +87,7 @@
                                       <img src="pokemon.jpg" class="pokemon"> 
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" id="exit" class="btn btn-secondary" data-dismiss="modal">Close</button>   
+                                      <button type="button" id="exit" class="btn btn-secondary" data-dismiss="modal" onclick="">Close</button>   
                                     </div>
                                   </div>
                                 </div>
